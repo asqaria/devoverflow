@@ -1,18 +1,10 @@
-import { ClerkProvider } from "@clerk/nextjs";
+import type { Metadata } from "next";
 // eslint-disable-next-line camelcase
 import { Inter, Space_Grotesk } from "next/font/google";
-import type { Metadata } from "next";
 import "./globals.css";
-import React from "react";
+import { ReactNode } from "react";
+import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/context/ThemeProvider";
-
-export const metadata: Metadata = {
-  title: "DevOverflow",
-  description: "developers helper",
-  icons: {
-    icon: "favicon.ico",
-  },
-};
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,28 +18,30 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-spaceGrotesk",
 });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const metadata: Metadata = {
+  title: "Dev Overflow",
+  description:
+    "A community-driven platform for asking and answering programming questions. Get help, share knowledge and collaborate with developers from around the world. Explore topics in web developments, mobile app development, algorithms, data structures and more...",
+  icons: {
+    icon: "/assets/images/site-logo.svg",
+  },
+};
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <ClerkProvider
-      appearance={{
-        elements: {
-          formButtonPrimary: "primary-gradient",
-          footerActionLink: "primary-text-gradient hover:text-primary-500",
-        },
-      }}
-    >
-      <ThemeProvider>
-        <html lang="en">
-          <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
-            <h1 className="h1-bold">Hello world!</h1>
-            {children}
-          </body>
-        </html>
-      </ThemeProvider>
-    </ClerkProvider>
+    <html lang="en">
+      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
+        <ClerkProvider
+          appearance={{
+            elements: {
+              formButtonPrimary: "primary-gradient",
+              footerActionLink: "primary-text-gradient hover:text-primary-500",
+            },
+          }}
+        >
+          <ThemeProvider>{children}</ThemeProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
