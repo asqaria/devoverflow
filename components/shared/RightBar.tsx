@@ -5,19 +5,19 @@ import RenderTag from './RenderTag';
 
 const RightBar = () => {
     const hotQuestions = [
-        {_id: 1, title: 'How re u?'},
-        {_id: 2, title: 'How re u?'},
-        {_id: 3, title: 'How re u?'},
-        {_id: 4, title: 'How re u?'},
-        {_id: 5, title: 'How re u?'},
-        {_id: 6, title: 'How re u?'},
+      { _id: "1", title: "How re u?" },
+      { _id: "2", title: "How re u?" },
+      { _id: "3", title: "How re u?" },
+      { _id: "4", title: "How re u?" },
+      { _id: "5", title: "How re u?" },
+      { _id: "6", title: "How re u?" },
     ];
 
     const tags = [
-        {_id: 1, name: 'javascript', totalQuestions: 5},
-        {_id: 2, name: 'javascript', totalQuestions: 7},
-        {_id: 3, name: 'javascript', totalQuestions: 2},
-        {_id: 4, name: 'javascript', totalQuestions: 1},
+      { _id: "1", name: "javascript", totalQuestions: 5 },
+      { _id: "2", name: "javascript", totalQuestions: 7 },
+      { _id: "3", name: "javascript", totalQuestions: 2 },
+      { _id: "4", name: "javascript", totalQuestions: 1 },
     ];
   return (
     <section className='background-light900_dark200 light-border custom-scrollbar sticky right-0 top-0
